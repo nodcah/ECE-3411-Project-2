@@ -11,15 +11,14 @@
 
 #include <stdint.h>
 
-
 typedef struct {
 	int16_t x;
 	int16_t y;
 	int16_t z;
-} BNO_DATA;
+} BNO_Data;
 
 Vector getBNO055();
-void changeMode();
+void changeModeBNO055();
 void initBNO055();
 
 #endif /* BNO055_H_ */

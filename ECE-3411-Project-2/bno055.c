@@ -8,11 +8,11 @@
 
 #include "bno055.h"
 
-Vector getBNO055() {
+BNO_Data getBNO055() {
 	
 }
 
-void changeMode() {
+void changeModeBNO055() {
 	
 }
 
