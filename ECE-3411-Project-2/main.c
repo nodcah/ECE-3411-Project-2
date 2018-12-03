@@ -13,9 +13,9 @@
 #define I2C_ADDRESS 0x28
 
 typedef struct {
-    int x=0;
-    int y=0;
-    int z=0;
+    int x = 0;
+    int y = 0;
+    int z = 0;
 } Vector;
 
 uint8_t readFlag = 0;  // Flag to determine when to read
@@ -37,6 +37,7 @@ int main(void) {
     printf("Init\n");
 
     while (1) {
+		
     }
 }
 
