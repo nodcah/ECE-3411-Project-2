@@ -18,14 +18,8 @@ typedef struct {
 	int16_t z;
 } BNO_DATA;
 
-Vector getBNO055() {
-	
-}
-
-void changeMode() {
-	
-}
-
-void initBNO055()
+Vector getBNO055();
+void changeMode();
+void initBNO055();
 
 #endif /* BNO055_H_ */
