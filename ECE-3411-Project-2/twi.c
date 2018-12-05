@@ -8,6 +8,9 @@
 #include <avr/io.h>
 #include "twi.h"
 
+#define TWI_READ 1
+#define TWI_WRITE 0
+
 #define getState(port, bit) (port & (1<<bit))
 #define setState(port, bit) (port |= (1<<bit))
 #define clearState(port, bit) (port &= ~(1<<bit))

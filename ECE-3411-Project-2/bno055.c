@@ -6,6 +6,7 @@
  */
 
 #include <avr/io.h>
+#include <util/delay.h>
 #include "bno055.h"
 #include "twi.h"
 
@@ -14,7 +15,8 @@ BNO_Data getBNO055() {
 	
 	startTWI1();
 	writeTWI1((BNO_ADR << 1) | TWI_WRITE);
-	writeTWI1(ACC_DATA_XLO_REG);
+	writeTWI1(EUL_DATA_XLO_REG);
+	startTWI1();
 	writeTWI1((BNO_ADR << 1) | TWI_READ);
 	data.x = readAckTWI1();
 	data.x |= ((int16_t) readAckTWI1()) << 8;
@@ -38,5 +40,9 @@ void changeModeBNO055(uint8_t mode) {
 void initBNO055() {
 	initTWI1();
 	
+	_delay_ms(10);
+	
     changeModeBNO055(OPR_MODE_IMU);
+	
+	_delay_ms(10);
 }

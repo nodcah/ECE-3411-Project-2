@@ -16,7 +16,7 @@
 // multiplying factor for bno data to radians (2*pi)/(360*16)
 #define DATA_TO_RAD 0.00109082986
 
-uint8_t readFlag = 0;  // Flag to determine when to read
+volatile uint8_t readFlag = 0;  // Flag to determine when to read
 
 void initIO();
 void initTimers();
@@ -32,26 +32,29 @@ int main(void) {
     initIO();
     initTimers();
     uart_init();
-    //initBNO055();
+    initBNO055();
     sei();
-    printf("Init\n");
+    //printf("Init\n");
 
     while (1) {
         if (readFlag) {
-            printf("Reading\n");
+            //printf("Reading\n");
             readFlag=0;
             double speed = getPotentiometer();
-            BNO_Data data = {1000, 0, 0};//getBNO055();
-            printf("Pot: %.5f\n", speed);
+            
+			BNO_Data data = getBNO055();
+            //printf("Pot: %.5f\n", speed);
+			
+			printf("X: %d\nY: %d\nZ: %d\nPot: %d\n", data.x, data.y, data.z, ADC);
 
             // Send data out to computer via UART
-            double dx = speed*sin(((double)data.x)*DATA_TO_RAD);
-            double dy = speed*cos(((double)data.x)*DATA_TO_RAD);
-            double dz = speed*sin(((double)data.y)*DATA_TO_RAD);
-            putchar(0x78);
-            putDouble(dx);
-            putDouble(dy);
-            putDouble(dz);
+            //double dx = speed*sin(((double)data.x)*DATA_TO_RAD);
+            //double dy = speed*cos(((double)data.x)*DATA_TO_RAD);
+            //double dz = speed*sin(((double)data.y)*DATA_TO_RAD);
+            //putchar(0x78);
+            //putDouble(dx);
+            //putDouble(dy);
+            //putDouble(dz);
         }
     }
 }

@@ -28,6 +28,13 @@
 #define ACC_DATA_ZLO_REG 0x0C
 #define ACC_DATA_ZHI_REG 0x0D
 
+#define EUL_DATA_XLO_REG 0x1A
+#define EUL_DATA_XHI_REG 0x1B
+#define EUL_DATA_YLO_REG 0x1C
+#define EUL_DATA_YHI_REG 0x1D
+#define EUL_DATA_ZLO_REG 0x1E
+#define EUL_DATA_ZHI_REG 0x1F
+
 typedef struct {
     int16_t x;
     int16_t y;
