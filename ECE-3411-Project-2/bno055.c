@@ -5,8 +5,9 @@
  *  Author: Indrid
  */
 
-
+#include <avr/io.h>
 #include "bno055.h"
+#include "twi.h"
 
 BNO_Data getBNO055() {
     //====================== WRITE COMMAND ========================
@@ -33,12 +34,17 @@ BNO_Data getBNO055() {
 
     TWCR1 = (1<<TWINT)|(1<<TWEN)| (1<<TWSTO); // Transmit STOP condition.
     return TWDR1;
+	
+	
+	
 }
 
 void changeModeBNO055() {
-
+	
 }
 
 void initBNO055() {
-    TWBR1 = 32;  // bit rate
+    initTWI1();
+	writeTWI1((BNO_ADR_LO << 1) | 0);
+	
 }

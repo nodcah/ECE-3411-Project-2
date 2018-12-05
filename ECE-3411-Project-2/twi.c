@@ -8,10 +8,6 @@
 #include <avr/io.h>
 #include "twi.h"
 
-
-#define BNO_ADR_LO 0x28 
-#define BNO_ADR_HI 0x29
-
 #define getState(port, bit) (port & (1<<bit))
 #define setState(port, bit) (port |= (1<<bit))
 #define clearState(port, bit) (port &= ~(1<<bit))

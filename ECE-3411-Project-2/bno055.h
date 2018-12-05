@@ -13,7 +13,11 @@
 #include "TWI_Master.h"
 #include "TWI_Slave.h"
 
-#define I2C_ADDRESS 0x28
+#define BNO_ADR_LO 0x28
+#define BNO_ADR_HI 0x29
+
+
+#define OPR_MODE_REG 0X3D
 
 typedef struct {
     int16_t x;
@@ -21,7 +25,7 @@ typedef struct {
     int16_t z;
 } BNO_Data;
 
-Vector getBNO055();
+BNO_Data getBNO055();
 void changeModeBNO055();
 void initBNO055();
 
