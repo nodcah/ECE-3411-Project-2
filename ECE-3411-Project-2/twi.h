@@ -11,6 +11,9 @@
 
 #include <stdint.h>
 
+#define TWI_READ 1
+#define TWI_WRITE 0
+
 void initTWI1();
 void startTWI1();
 uint8_t writeTWI1(uint8_t data);
