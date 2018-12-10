@@ -45,14 +45,14 @@ int main(void) {
             BNO_Data data = getBNO055();
             //printf("Pot: %.5f\n", speed);
 
-            printf("X: %d\nY: %d\nZ: %d\nPot: %d\n", data.x, data.y, data.z, ADC);
+            //printf("X: %d\nY: %d\nZ: %d\nPot: %d\n", data.x, data.y, data.z, ADC);
 
             // Send data out to computer via UART
             double dx = speed*sin(((double)data.x)*DATA_TO_RAD);
             double dy = speed*cos(((double)data.x)*DATA_TO_RAD);
-            double dz = speed*sin(((double)data.y)*DATA_TO_RAD);
+            double dz = speed*sin(((double)data.z)*DATA_TO_RAD);
             //printf("dX: %d\ndY: %d\ndZ: %d\nPot: %d\n\n", (int)(dx*1000), (int)(dy*1000), (int)(dz*1000), ADC);
-            /*putchar(0x78);
+            putchar(0x78);
             putDouble(dx);
             putDouble(dy);
             putDouble(dz);  //*/
